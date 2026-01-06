@@ -1,0 +1,56 @@
+{
+    "name": "rodas/loader",
+    "description": "Autoloading and plugin loading strategies",
+    "type": "library",
+    "keywords": [
+        "loader",
+        "fallback-autoloader",
+        "plugin-loader"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcos Porto Mariño",
+            "email": "php@marcospor.to"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/Marqitos/php-loader",
+        "issues": "https://github.com/Marqitos/php-loader/issues"
+    },
+    "homepage": "https://marcospor.to/repositories",
+    "minimum-stability": "stable",
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "require": {
+        "php": "^8.0.0",
+        "rodas/psr-scaffold": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.5.25"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rodas\\Loader\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rodas\\Test\\Loader\\": "test/Loader"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}
